@@ -6,9 +6,7 @@ from file_handling import current_time
 
 @dataclass
 class DataConfig:
-    actual_buttan_path: str = "./data/my_preprocessed/actual_buttan.csv"
-    actual_num_tokusya_path: str = "./data/my_preprocessed/model_num_tokusya.csv"
-    temperature_path: str = "./data/my_preprocessed/temperature.csv"
+    data_path: str = "./data/test.csv"
 
 
 @dataclass
@@ -20,22 +18,15 @@ class ModelParamConfig:
 
 @dataclass
 class TrainConfig:
-    TARGET: str = "num_tokusya"
+    TARGET: str = "classes"
     FEATURES: List[str] = field(
         default_factory=lambda: [
-            "actual_buttan",
-            "temperature"
-            # "actual_buttan_b1",
+            "feature1",
+            "feature2"
+            # "feature3",
         ]
     )
 
-
-@dataclass
-class DateConfig:
-    VARIFY_EXEC_DATE: str = "2021-04-29"
-    pred_exec_date: str = "2021-06-03"
-    PASS_DAY_TO_START: int = 4  # 木曜日から月曜日までの経過日数は4日
-    PASS_DAY_TO_END: int = 9  # 木曜日から土曜日までの経過日数は9日
 
 
 @dataclass
@@ -43,7 +34,6 @@ class ExperimentConfig:
     data: DataConfig = DataConfig()
     model: ModelParamConfig = ModelParamConfig()
     train: TrainConfig = TrainConfig()
-    date: DateConfig = DateConfig()
 
     root_result_dir: str = "results"
     result_dir: str = current_time()
@@ -58,7 +48,7 @@ if __name__ == "__main__":
     from file_handling import load_dataclass, save_yaml
 
     def current_time():
-        """Get current time as strings format in the system's time zone."""
+        """現在時刻を取得"""
         now = datetime.now()
         now_str = datetime.strftime(now, "%Y-%m-%d_%H-%M-%S")
         return now_str
