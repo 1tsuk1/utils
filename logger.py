@@ -1,9 +1,11 @@
 
 import logging
 import sys
+from logging import getLogger
 
 from termcolor import colored
 
+DATE_FMT = '%m%d %H:%M:%S'
 
 class _MyFormatter(logging.Formatter):
     def format(self, record):
@@ -69,10 +71,8 @@ def set_logger(log_path: str, logging_level: int) -> logging.Logger:
 if __name__ == "__main__":
 
     import argparse
-    from logging import getLogger
     from pathlib import Path
 
-    DATE_FMT = '%m%d %H:%M:%S'
 
     def parse_arguments():
         parser = argparse.ArgumentParser()
@@ -92,6 +92,7 @@ if __name__ == "__main__":
 
     # ログの出力先の取得
     log_path = args.log_path
+
     # 出力先の親ディレクトリまでが存在しなければ生成
     parent_log_path = Path(log_path).parent
     parent_log_path.mkdir(exist_ok=True)
