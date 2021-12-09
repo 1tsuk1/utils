@@ -4,6 +4,7 @@ from pathlib import Path
 from dataclass import ExperimentConfig
 from file_handling import load_dataclass, save_yaml
 from logger import set_logger
+from timer import timer
 
 if __name__ == "__main__":
 
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     # ロギングレベルの取得
     logging_level = getattr(logging, config.log_level.upper(), None)
     if not isinstance(logging_level, int):
-        raise ValueError('Invalid log level: %s' % config.log_level.upper())
+        raise ValueError("Invalid log level: %s" % config.log_level.upper())
 
     # ログの出力先の取得
     log_filename = config.log_filename
@@ -36,9 +37,12 @@ if __name__ == "__main__":
     # TODO: ----------------以下はよしなに処理を記述していく--------------
 
     # ログ例
-    logger.info('Log file set to {}'.format(log_path))
+    logger.info("Log file set to {}".format(log_path))
     logger.info("aaaaaa")
     logger.error("aaaaaa")
     logger.warning("aaaaaa")
     logger.debug("aaaaaa")
     # logger.info('| %11s | %11s | %11s | %11s|' %('surr', 'kl', 'ent', 'vf_loss'))
+
+    with timer("process1", logger):
+        a = [i for i in range(10 ** 6)]
