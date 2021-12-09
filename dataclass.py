@@ -28,7 +28,6 @@ class TrainConfig:
     )
 
 
-
 @dataclass
 class ExperimentConfig:
     data: DataConfig = DataConfig()
