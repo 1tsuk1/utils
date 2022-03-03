@@ -1,10 +1,10 @@
 import logging
 from pathlib import Path
 
-from dataclass import ExperimentConfig
-from file_handling import load_dataclass, save_yaml
-from logger import set_logger
-from timer import timer
+from utils.dataclass import ExperimentConfig
+from utils.file_handling import load_dataclass, save_yaml
+from utils.logger import set_logger
+from utils.timer import timer
 
 if __name__ == "__main__":
 
