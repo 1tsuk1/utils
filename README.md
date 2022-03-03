@@ -8,9 +8,13 @@
 
 ## 導入方法
 
-1. main.pyで不必要な部分を削除
-2. dataclass.pyで、開発環境に見合った設定を行う
-3. ログを活用しながら、よしなにコーディング
+1. `git clone [https://github.com/1tsuk1/utils](https://github.com/1tsuk1/utils)` でこのリポジトリをクローン
+2. `pipenv sync` で仮想環境を構築する
+   1. 必要があれば、Pipfileのpythonのバージョンを変更する
+3. main.pyで不必要な部分を削除して、よしなに実装
+4. ライブラリのインストールが必要であれば、`pipenv install hogehoge` で追加
+5. dataclass.pyで、開発環境に見合った設定を行う
+6. ログを活用しながら、よしなにコーディング
 
 ## Q&A
 
@@ -19,7 +23,7 @@
 
 ```
 #experimentへ変更（デフォルトは日時。ex. 2021-12-08_10-55-34）
-python example_main.py --result_dir experiment
+python main.py --result_dir experiment
 ```
 
 
@@ -27,12 +31,12 @@ python example_main.py --result_dir experiment
 
 ```
 #DEBUGへの変更（デフォルトはINFO）
-python example_main.py --log_level debug
+python main.py --log_level debug
 ```
 
 ### ログファイル名を変更したい
 
 ```
 #log_pathで指定する
-python example_main.py --log_path log.log
+python main.py --log_path log.log
 ```
