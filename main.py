@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     # -----------実験設定の取得-----------
     config = load_dataclass(ExperimentConfig)
-    # logger.info(f"実験設定 \n : {config}")
+    logger.info(f"実験設定 \n : {config}")
 
     # 結果の出力先を設定
     root_results = Path(config.root_result_dir + "/" + config.result_dir)
