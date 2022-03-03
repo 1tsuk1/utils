@@ -8,7 +8,7 @@
 
 ## 導入方法
 
-1. `git clone [https://github.com/1tsuk1/utils](https://github.com/1tsuk1/utils)` でこのリポジトリをクローン
+1. `git clone https://github.com/1tsuk1/utils` でこのリポジトリをクローン
 2. `pipenv sync` で仮想環境を構築する
    1. 必要があれば、Pipfileのpythonのバージョンを変更する
 3. main.pyで不必要な部分を削除して、よしなに実装
