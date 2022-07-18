@@ -9,12 +9,29 @@
 ## 導入方法
 
 1. `git clone https://github.com/1tsuk1/utils` でこのリポジトリをクローン
-2. `pipenv sync` で仮想環境を構築する
-   1. 必要があれば、Pipfileのpythonのバージョンを変更する
-3. main.pyで不必要な部分を削除して、よしなに実装
-4. ライブラリのインストールが必要であれば、`pipenv install hogehoge` で追加
-5. dataclass.pyで、開発環境に見合った設定を行う
-6. ログを活用しながら、よしなにコーディング
+
+
+## 環境構築
+
+
+### pipenv 
+```
+pipenv sync
+```
+
+
+### docker
+1. デスクトップ用のdockerアプリをinstall
+3. 2のアプリを起動
+4. `docker compose up -d --build` を実行して、コンテナを作成
+5. `docker compose exec python3 zsh` でコンテナへ接続
+
+
+## 実装
+6. main.pyで不必要な部分を削除して、よしなに実装
+7. ライブラリのインストールが必要であれば、`pipenv install hogehoge` で追加
+8. dataclass.pyで、開発環境に見合った設定を行う
+9.  ログを活用しながら、よしなにコーディング
 
 ## Q&A
 

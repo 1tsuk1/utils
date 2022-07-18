@@ -10,11 +10,10 @@ if __name__ == "__main__":
 
     # -----------実験設定の取得-----------
     config = load_dataclass(ExperimentConfig)
-    logger.info(f"実験設定 \n : {config}")
 
     # 結果の出力先を設定
     root_results = Path(config.root_result_dir + "/" + config.result_dir)
-    root_results.mkdir(exist_ok=True)
+    root_results.mkdir(exist_ok=True, parents=True)
 
     # 実行時のconfigを保存
     config_output_path = root_results / "config.yaml"
@@ -34,6 +33,7 @@ if __name__ == "__main__":
     # ロガーの生成
     logger = set_logger(log_path, logging_level)
 
+    logger.info(f"実験設定 \n : {config}")
     # TODO: ----------------以下はよしなに処理を記述していく--------------
 
     # ログ例
